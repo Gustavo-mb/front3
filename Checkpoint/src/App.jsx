@@ -1,7 +1,8 @@
 
 import { Outlet } from "react-router-dom";
-import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+
 
 function App() {
   return (
@@ -9,11 +10,11 @@ function App() {
       {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar a classe dark ou light */}
       <div className={`app light}`}>
-        <Navbar />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
+        
+         <Navbar />
+         <Outlet />
+         <Footer/>
+      
       </div>
     </>
   );
