@@ -19,7 +19,7 @@ root.render(
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dentist/:id" element={<Detail />} />
+        <Route path="/dentista/:id" element={<Detail />} />
       </Route>
     </Routes>
 
