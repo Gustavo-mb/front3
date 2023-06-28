@@ -1,9 +1,11 @@
 import styles from "./Card.module.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 const Card = () => {
   const [dentista, setDentista] = useState([]);
-
+  
+  
 useEffect(()=>{
   const fetchDentistas = async () => {
     try {
