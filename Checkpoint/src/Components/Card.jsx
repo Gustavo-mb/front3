@@ -2,6 +2,7 @@ import styles from "./Card.module.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const Card = ({ darkMode }) => {
   const [dentista, setDentista] = useState([]);
 
@@ -20,6 +21,27 @@ const Card = ({ darkMode }) => {
     };
     fetchDentistas();
   }, []);
+
+const Card = () => {
+  const [dentista, setDentista] = useState([]);
+  
+  
+useEffect(()=>{
+  const fetchDentistas = async () => {
+    try {
+      const response = await axios.get(
+        "https://dhodonto.ctdprojetointegrador.com/dentista" 
+      );
+      const data = response.data;
+      setDentista(data);
+    } catch (error) {
+      console.log(error)
+      console.log("Lista de dentista vazia!")
+    }
+  };
+  fetchDentistas();
+},[]);
+
 
   return (
     <>

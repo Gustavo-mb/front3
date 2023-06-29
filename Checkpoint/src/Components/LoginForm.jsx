@@ -1,15 +1,10 @@
 import styles from "./Form.module.css";
-
-import axios from "axios";
-import apiBaseUrl from "../api";
-
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
 import useApi from "../Hooks/useApi";
+import { AuthContext } from "../AuthContext";
 
 const LoginForm = () => {
-
   /// Estado dos campos de input do formulário
   const [login, setLogin] = useState(
     {
@@ -19,31 +14,25 @@ const LoginForm = () => {
   );
 
   const { data, isLoading, error, shouldFetch } = useApi();
-
   /// Hook utilizado para fazer a navegação entre rotas
   const navigate = useNavigate();
+  // Acessa a função de login dentro do AuthContext
+  const { login: handleLogin } = useContext(AuthContext); 
 
   useEffect(() => {
-
     if (data && !error) {
-
       /// Guardamos o token JWT no Storage
       localStorage.setItem("tokenJwt", data.token);
-
+      // Atualiza o estado da constante local login, usando a função login dentro do AuthContext
+      handleLogin();
       /// Redirecionamos o usuário para a Home
       navigate("/home");
-
     }
-
-
-  }, [data, error, navigate]);
+  }, [data, error, handleLogin, navigate]);
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
-
     await shouldFetch("auth", login);
-
   };
 
   return (
@@ -76,7 +65,7 @@ const LoginForm = () => {
           <p> {error ? error.message : ""}</p>
 
           <button className="btn btn-primary" type="submit">
-            Send
+            Enviar
           </button>
         </form>
       </div>
