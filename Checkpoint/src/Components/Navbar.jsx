@@ -1,6 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
+  const navigate = useNavigate();
+  const { loggedIn, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+    // Redireciona para a página Home após realizar o logout
+    navigate("/home");
+  };
+
   return (
     <header className="sticky-top">
       <nav
@@ -36,9 +47,20 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
+                {loggedIn ? (
+                  <button
+                    className={`btn ${
+                      darkMode ? "btn-light" : "btn-dark"
+                    } btn-sm`}
+                    onClick={handleLogout}
+                  >
+                    Log Off
+                  </button>
+                ) : (
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
                 <button

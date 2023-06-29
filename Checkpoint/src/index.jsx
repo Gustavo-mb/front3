@@ -7,22 +7,21 @@ import App from "./App";
 import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Detail from "./Routes/Detail";
+import { AuthProvider } from "./AuthContext";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
   <BrowserRouter>
-
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="/" element={<Navigate to={"/home"} />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dentista/:id" element={<Detail />} />
-      </Route>
-    </Routes>
-
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/" element={<Navigate to={"/home"} />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dentista/:id" element={<Detail />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
   </BrowserRouter>
-
 );
