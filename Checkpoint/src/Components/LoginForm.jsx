@@ -1,8 +1,4 @@
 import styles from "./Form.module.css";
-
-import axios from "axios";
-import apiBaseUrl from "../api";
-
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 

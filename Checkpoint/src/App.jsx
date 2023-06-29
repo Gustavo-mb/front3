@@ -13,11 +13,13 @@ const App = () => {
   return (
     <>
       <div className={`app ${darkMode ? "dark" : "light"}`}>
+      
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div>
           <Outlet />
           <Footer />
         </div>
+     
       </div>
     </>
   );
