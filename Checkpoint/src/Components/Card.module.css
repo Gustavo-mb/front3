@@ -1,23 +1,16 @@
-.cardDark{
-  background-color: #31313196;
+.dark {
+  color: #fff;
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+.light {
+  background-color: #979393;
+  color: #ffffff;
 }
 
-.favButton{
-  width: 100%;
+.darkText {
+  color: #fff;
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
-}
-
-.CardBody{
-  width: 100%;
-}
-
-.title{
-  height: 2rem;
+.lightText {
+  color: #333;
 }
