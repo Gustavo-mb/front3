@@ -1,15 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../AuthContext";
-
-const Navbar = ({ darkMode, toggleDarkMode }) => {
+import { AuthContext } from "../Context/AuthContext";
+import { ThemeContext } from "../Context/ThemeContext";
+import styles from "./Navbar.module.css"
+const Navbar = () => {
   const navigate = useNavigate();
   const { loggedIn, logout } = useContext(AuthContext);
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   const handleLogout = () => {
-    logout();
-    // Redireciona para a página Home após realizar o logout
-    navigate("/home");
+    const confirmLogout = window.confirm("Tem certeza de que deseja sair?");
+    if (confirmLogout) {
+      logout();
+      localStorage.removeItem("jwtToken"); // Remova o token JWT do armazenamento local do navegador
+      // Lógica adicional após o logoff, se necessário
+      console.log("Usuário saiu com sucesso");
+      navigate("/home");
+    }
   };
 
   return (
@@ -40,7 +47,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             className="collapse navbar-collapse justify-content-end"
             id="navbarsExample03"
           >
-            <ul className="navbar-nav mb-2 mb-sm-0">
+            <ul className={`navbar-nav mb-2 mb-sm-0 ${styles.NavLoginLogout}`}>
               <li className="nav-item">
                 <Link className="nav-link" to="/home">
                   Home

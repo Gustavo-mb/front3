@@ -1,15 +1,31 @@
-.card{
+.card {
   width: 23rem;
   gap: 1rem;
   padding: 1rem;
+  margin: auto;
   margin-top: 2rem;
-  height: calc(100vh -86px);
+  height: calc(100vh - 86px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.cardDark{
+.cardDark {
   background-color: #31313196;
+  
 }
 
-.inputSpacing+.inputSpacing{
+.inputSpacing + .inputSpacing {
   margin: 1rem 0;
+}
+
+.Container{
+
+ 
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 50%;
+  border-radius: 20px;
+  margin-right: auto;
+  margin-left: auto;
 }

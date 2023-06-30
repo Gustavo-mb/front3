@@ -7,13 +7,13 @@ import App from "./App";
 import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Detail from "./Routes/Detail";
-import { AuthProvider } from "./AuthContext";
 import "./index.css";
+import { GlobalProvider } from "./Context/GlobalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <AuthProvider>
+    <GlobalProvider>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Navigate to={"/home"} />} />
@@ -22,6 +22,6 @@ root.render(
           <Route path="/dentista/:id" element={<Detail />} />
         </Route>
       </Routes>
-    </AuthProvider>
+    </GlobalProvider>
   </BrowserRouter>
 );

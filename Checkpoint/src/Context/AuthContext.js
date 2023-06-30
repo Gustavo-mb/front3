@@ -7,12 +7,16 @@ const AuthProvider = ({ children }) => {
 
   const login = () => {
     setLoggedIn(true);
+    // Adicione a mensagem de login bem-sucedido aqui
+    alert("Login realizado com sucesso!");
   };
 
   const logout = () => {
     setLoggedIn(false);
-    // Limpar o token JWT do Armazenamento local do navegador
-    localStorage.removeItem("jwtToken");
+    // Remova o token JWT do Armazenamento local do navegador
+    localStorage.removeItem("tokenJwt");
+    // Adicione a mensagem de logout bem-sucedido aqui
+    alert("Usuário saiu com sucesso!");
   };
 
   return (
