@@ -13,8 +13,8 @@ const App = () => {
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <div>
           <Outlet />
-          <Footer />
         </div>
+        <Footer />
       </div>
     </>
   );

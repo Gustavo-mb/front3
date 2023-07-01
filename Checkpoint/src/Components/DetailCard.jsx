@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ScheduleFormModal from "./ScheduleFormModal";
 import axios from "axios";
 import styles from "./DetailCard.module.css";
 import apiBaseUrl from "../api"
 import { useParams } from "react-router-dom"; // Importe o hook useParams
+import { ThemeContext } from "../Context/ThemeContext";
 
 const DetailCard = () => {
   const [dentista, setDentista] = useState(null);
   const { id } = useParams(); // Use o hook useParams para obter o parâmetro "id"
+  const { darkMode } = useContext(ThemeContext);
 
   useEffect(() => {
     const fetchDentista = async () => {
@@ -30,9 +32,9 @@ const DetailCard = () => {
 
   return (
     <>
-      <h1>Detail about Dentist {dentista.nome} </h1>
-      <section className="card col-sm-12 col-lg-6 container">
-        <div className={`card-body row`}>
+      <h1>Detalhes sobre o Dentista {dentista.nome} </h1>
+      <section className={`card col-sm-12 col-lg-6 container ${darkMode ? styles.cardDark : " "}`}>
+        <div className={`card-body row `}>
           <div className="col-sm-12 col-lg-6">
             <img
               className="card-img-top"
@@ -40,7 +42,7 @@ const DetailCard = () => {
               alt="doctor placeholder"
             />
           </div>
-          <div className="col-sm-12 col-lg-6">
+          <div className={`col-sm-12 col-lg-6 ${styles.FormDetailContainer} `}>
             <ul className="list-group">
               <li className="list-group-item">Nome: {dentista.nome}</li>
               <li className="list-group-item">
@@ -54,7 +56,7 @@ const DetailCard = () => {
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                className={`btn btn-light ${styles.button}`}
+                className={`btn btn-light ${styles.BtnLight}  ${darkMode ? styles.button : ""}`}
               >
                 Marcar consulta
               </button>

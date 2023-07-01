@@ -9,6 +9,7 @@ import Login from "./Routes/Login";
 import Detail from "./Routes/Detail";
 import "./index.css";
 import { GlobalProvider } from "./Context/GlobalContext";
+import Consultas from "./Routes/Consultas";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<Navigate to={"/home"} />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/consulta" element={<Consultas />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dentista/:id" element={<Detail />} />
         </Route>

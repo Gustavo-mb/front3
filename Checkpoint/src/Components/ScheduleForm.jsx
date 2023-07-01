@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ScheduleForm.module.css";
 import axios from "axios";
 
@@ -87,7 +87,7 @@ const ScheduleForm = () => {
           <div className={`row ${styles.rowSpacing}`}>
             <div className="col-sm-12 col-lg-6">
               <label htmlFor="dentist" className="form-label">
-                Dentist
+                Dentista
               </label>
               <select className="form-select" name="dentist" id="dentist">
                 {dentista.map((dentistas) => (
@@ -99,7 +99,7 @@ const ScheduleForm = () => {
             </div>
             <div className="col-sm-12 col-lg-6">
               <label htmlFor="patient" className="form-label">
-                Patient
+                Paciente
               </label>
               <select className="form-select" name="patient" id="patient">
                 {paciente.map((pacientes) => (
@@ -113,7 +113,7 @@ const ScheduleForm = () => {
           <div className={`row ${styles.rowSpacing}`}>
             <div className="col-12">
               <label htmlFor="appointmentDate" className="form-label">
-                Date
+                Data
               </label>
               <input
                 className="form-control"
@@ -128,7 +128,7 @@ const ScheduleForm = () => {
               className={`btn btn-light ${styles.button}`}
               type="submit"
             >
-              Schedule
+              Agendar
             </button>
           </div>
         </form>
