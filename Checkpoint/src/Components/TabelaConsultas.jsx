@@ -63,7 +63,11 @@ const TabelaConsultas = () => {
 
   return (
     <main className="container">
-     <div className={`${styles["tabela-consultas"]} ${darkMode ? styles["dark-mode"] : ""}`}>
+      <div
+        className={`${styles["tabela-consultas"]} ${
+          darkMode ? styles["dark-mode"] : ""
+        }`}
+      >
         <table className={`${styles["table"]} ${styles["custom-table"]}`}>
           <thead>
             <tr>
@@ -73,8 +77,8 @@ const TabelaConsultas = () => {
             </tr>
           </thead>
           <tbody>
-            {getCurrentConsultas().map((consulta) => (
-              <tr key={consulta.id}>
+            {getCurrentConsultas().map((consulta, index) => (
+              <tr key={index}>
                 <td>{formatarData(consulta.dataHoraAgendamento)}</td>
                 <td>
                   {consulta.dentista.nome} {consulta.dentista.sobrenome}
