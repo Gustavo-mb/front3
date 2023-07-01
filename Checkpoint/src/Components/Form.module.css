@@ -12,19 +12,15 @@
 
 .cardDark {
   background-color: #31313196;
-  
 }
 
 .inputSpacing + .inputSpacing {
   margin: 1rem 0;
 }
 
-.Container{
-
- 
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  width: 50%;
+.Container {
+  width: 23rem;
+  height: 50%;
   border-radius: 20px;
   margin-right: auto;
   margin-left: auto;

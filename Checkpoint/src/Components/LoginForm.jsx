@@ -39,8 +39,8 @@ const LoginForm = () => {
 
   return (
     <main>
-      <div className={`text-center card ${styles.Container} ${darkMode ? styles.cardDark : ""}`}>
-        <div className={`card-body `}>
+      <div className={`text-center card container ${styles.card} ${styles.Container} ${darkMode ? styles.cardDark : ""}`}>
+        <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
             <input
               className={`form-control ${styles.inputSpacing}`}
