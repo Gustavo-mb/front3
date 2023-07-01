@@ -1,26 +1,36 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const login = () => {
     setLoggedIn(true);
-    // Adicione a mensagem de login bem-sucedido aqui
-    alert("Login realizado com sucesso!");
+    setSuccessMessage("Login realizado com sucesso!");
+    setErrorMessage("");
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 2000);
   };
 
   const logout = () => {
     setLoggedIn(false);
-    // Remova o token JWT do Armazenamento local do navegador
     localStorage.removeItem("tokenJwt");
-    // Adicione a mensagem de logout bem-sucedido aqui
-    alert("Usuário saiu com sucesso!");
+    setSuccessMessage("Usuário saiu com sucesso!");
+    setErrorMessage("");
+    setTimeout(() => {
+      setSuccessMessage("");
+      navigate("/login"); // Redirecionar para a página de login
+    }, 2000);
   };
 
   return (
-    <AuthContext.Provider value={{ loggedIn, login, logout }}>
+    <AuthContext.Provider value={{ loggedIn, login, logout, successMessage, errorMessage }}>
       {children}
     </AuthContext.Provider>
   );
