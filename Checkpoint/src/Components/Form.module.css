@@ -25,3 +25,13 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.successMessage {
+  color: green;
+  font-weight: bold;
+}
+
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}

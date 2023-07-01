@@ -60,8 +60,8 @@ const LoginForm = () => {
             <div className={styles.message}>
               {showLoading && isLoading && !authContext.successMessage && <span>Carregando...</span>}
               {error && <span>{error.message}</span>}
-              {authContext.successMessage && <span>{authContext.successMessage}</span>}
-              {authContext.errorMessage && <span>{authContext.errorMessage}</span>}
+              {authContext.successMessage && <span className={styles.successMessage}>{authContext.successMessage}</span>}
+              {authContext.errorMessage && <span className={styles.errorMessage}>{authContext.errorMessage}</span>}
             </div>
             <button className="btn btn-primary" type="submit">
               Enviar

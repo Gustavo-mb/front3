@@ -24,7 +24,6 @@ const AuthProvider = ({ children }) => {
     setSuccessMessage("Usuário saiu com sucesso!");
     setErrorMessage("");
     setTimeout(() => {
-      setSuccessMessage("");
       navigate("/login"); // Redirecionar para a página de login
     }, 2000);
   };
