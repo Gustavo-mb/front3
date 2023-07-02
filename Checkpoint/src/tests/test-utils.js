@@ -1,18 +1,13 @@
-import { render } from "@testing-library/react"
-import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom"
-import { ContextProvider } from "../Components/utils/global.context"
-import Home from "../Routes/Home"
-import Detail from "../Routes/Detail"
-import Login from "../Routes/Login"
-import App from "../App"
-
+import { render } from "@testing-library/react";
+import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
+import { GlobalProvider } from "../Context/GlobalContext";
 
 const renderWithContext = (ui, providerValue)=>{
     return render(
         <BrowserRouter>
-            <ContextProvider value={providerValue || {theme: "light", data: []}} >   
+            <GlobalProvider value={providerValue || {theme: "light", data: []}} >   
                 {ui}
-            </ContextProvider>
+            </GlobalProvider>
         </BrowserRouter>
     )
 }
